@@ -1,33 +1,36 @@
-# Laravel Tips
+# Dicas Laravel
+>Tradução para pt-BR do repo [laravel-tips](https://github.com/LaravelDaily/laravel-tips).
 
-Awesome Laravel tips and tricks for all artisans. PR and ideas are welcome!  
-An idea by [PovilasKorop](https://github.com/PovilasKorop) and [MarceauKa](https://github.com/MarceauKa).
+>Sei da necessidade do inglês para evoluir no mundo da programação, mas espero que essa tradução seja útil para alguém
 
-__Update 29 Jan 2021__: Currently there are __125 tips__ divided into 14 sections.
+Dicas e truques incríveis para todos os artesãos. 
+Uma ideia por [PovilasKorop](https://github.com/PovilasKorop) e [MarceauKa](https://github.com/MarceauKa).
 
-## Table of Contents
+__Atualizado em 09 Fev 2021__: Atualmente existem __125 dicas__ divididas em 14 seções.
 
-- [DB Models and Eloquent](#db-models-and-eloquent) (31 tips)
-- [Models Relations](#models-relations) (22 tips)
-- [Migrations](#migrations) (8 tips)
-- [Views](#views) (8 tips)
-- [Routing](#routing) (13 tips)
-- [Validation](#validation) (7 tips)
-- [Collections](#collections) (4 tips)
-- [Auth](#auth) (5 tips)
-- [Mail](#mail) (4 tips)
-- [Artisan](#artisan) (5 tips)
-- [Factories](#factories) (2 tips)
-- [Log and debug](#log-and-debug) (2 tips)
-- [API](#api) (2 tips)
-- [Other](#other) (12 tips)
+## Índice
+
+- [Modelos do BD e Eloquent](#modelos-do-db-e-eloquent) (31 dicas)
+- [Relacionamento de Modelos](#relacionamento-de-modelos) (22 dicas)
+- [Migrações](#migrações) (8 dicas)
+- [Views](#views) (8 dicas)
+- [Rotas](#rotas) (13 dicas)
+- [Validação](#validação) (7 dicas)
+- [Coleções](#coleções) (4 dicas)
+- [Auth](#auth) (5 dicas)
+- [Mail](#mail) (4 dicas)
+- [Artisan](#artisan) (5 dicas)
+- [Fábricas](#fábricas) (2 dicas)
+- [Log e Debug](#log-e-debug) (2 dicas)
+- [API](#api) (2 dicas)
+- [Outros](#outros) (12 dicas)
 
 
-## DB Models and Eloquent
+## Modelos do BD e Eloquent
 
-⬆️ [Go to top](#laravel-tips) ➡️ [Next (Models Relations)](#models-relations)
+⬆️ [Ir para o topo](#dicas-laravel) ➡️ [Próximo (Relacionamento de Modelos)](#relacionamento-de-modelos)
 
-- [Eloquent where date methods](#eloquent-where-date-methods)
+- [Where do Eloquent e métodos de data](#eloquent-where-date-methods)
 - [Increments and decrements](#increments-and-decrements)
 - [No timestamp columns](#no-timestamp-columns)
 - [Set logged in user with Observers](#set-logged-in-user-with-observers)
@@ -59,7 +62,7 @@ __Update 29 Jan 2021__: Currently there are __125 tips__ divided into 14 section
 - [Storing Array Type into JSON](#storing-array-type-into-json)
 - [Make a Copy of the Model](#make-a-copy-of-the-model)
 
-### Eloquent where date methods
+### Where do Eloquent e métodos de data
 
 In Eloquent, check the date with functions `whereDay()`, `whereMonth()`, `whereYear()`, `whereDate()` and `whereTime()`.
 
@@ -139,7 +142,7 @@ $users = DB::table('users')->select('name', 'email as user_email')->get();
 
 ### Map query results
 
-After Eloquent query you can modify rows by using `map()` function in Collections.
+After Eloquent query you can modify rows by using `map()` function in Coleções.
 
 ```php
 $users = User::where('role_id', 1)->get()->map(function (User $user) {
@@ -498,9 +501,9 @@ $billing->save();
 ```
 
 
-## Models Relations
+## Relacionamento de Modelos
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (DB Models and Eloquent)](#db-models-and-eloquent) ➡️ [Next (Migrations)](#migrations)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Modelos do BD e Eloquent)](#modelos-do-db-e-eloquent) ➡️ [Próximo (Migrações)](#migrações)
 
 - [OrderBy on Eloquent relationships](#orderby-on-eloquent-relationships)
 - [Conditional relationships](#conditional-relationships)
@@ -865,12 +868,12 @@ $questions = Question::with(['answers' => function($q) {
 }])->inRandomOrder()->get();
 ```
 
-## Migrations
+## Migrações
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Models Relations)](#models-relations) ➡️ [Next (Views)](#views)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Relacionamento de Modelos)](#relacionamento-de-modelos) ➡️ [Próximo (Views)](#views)
 
 - [Unsigned Integer](#unsigned-integer)
-- [Order of Migrations](#order-of-migrations)
+- [Order of Migrações](#order-of-migrations)
 - [Migration fields with timezones](#migration-fields-with-timezones)
 - [Database migrations column types](#database-migrations-column-types)
 - [Default Timestamp](#default-timestamp)
@@ -898,7 +901,7 @@ Schema::create('employees', function (Blueprint $table) {
 });
 ```
 
-### Order of Migrations
+### Order of Migrações
 
 If you want to change the order of DB migrations, just rename the file's timestamp, like from `2018_08_04_070443_create_posts_table.php` to`2018_07_04_070443_create_posts_table.php` (changed from `2018_08_04` to `2018_07_04`).
 
@@ -987,7 +990,7 @@ Schema::table('users', function (Blueprint $table) {
 
 ## Views
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Migrations)](#migrations) ➡️ [Next (Routing)](#routing)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Migrações)](#migrações) ➡️ [Próximo (Rotas)](#rotas)
 
 - [$loop variable in foreach](#loop-variable-in-foreach)
 - [Does view file exist?](#does-view-file-exist)
@@ -1134,17 +1137,17 @@ This will try to load adminlte.header, if missing - will load default.header
 @includeFirst('adminlte.header', 'default.header')
 ```
 
-## Routing
+## Rotas
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Views)](#views) ➡️ [Next (Validation)](#validation)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Views)](#views) ➡️ [Próximo (Validação)](#validação)
 
 - [Route group within a group](#route-group-within-a-group)
 - [Wildcard subdomains](#wildcard-subdomains)
 - [What's behind the routes?](#whats-behind-the-routes)
 - [Route Model Binding: You can define a key](#route-model-binding-you-can-define-a-key)
 - [Quickly Navigate from Routes file to Controller](#quickly-navigate-from-routes-file-to-controller)
-- [Route Fallback: When no Other Route is Matched](#route-fallback-when-no-other-route-is-matched)
-- [Route Parameters Validation with RegExp](#route-parameters-validation-with-regexp)
+- [Route Fallback: When no Outros Route is Matched](#route-fallback-when-no-other-route-is-matched)
+- [Route Parameters Validação with RegExp](#route-parameters-validation-with-regexp)
 - [Rate Limiting: Global and for Guests/Users](#rate-limiting-global-and-for-guestsusers)
 - [Query string parameters to Routes](#query-string-parameters-to-routes)
 - [Separate Routes by Files](#separate-routes-by-files)
@@ -1213,7 +1216,7 @@ public function auth()
 }
 ```
 
-Before Laravel 7, check the file `/vendor/laravel/framework/src/illuminate/Routing/Router.php`.
+Before Laravel 7, check the file `/vendor/laravel/framework/src/illuminate/Rotas/Router.php`.
 
 ### Route Model Binding: You can define a key
 
@@ -1251,7 +1254,7 @@ use App\Http\Controllers\PageController;
 Route::get('page', [PageController::class, 'action']);
 ```
 
-### Route Fallback: When no Other Route is Matched
+### Route Fallback: When no Outros Route is Matched
 
 If you want to specify additional logic for not-found routes, instead of just throwing default 404 page, you may create a special Route for that, at the very end of your Routes file.
 
@@ -1267,7 +1270,7 @@ Route::fallback(function() {
 });
 ```
 
-### Route Parameters Validation with RegExp
+### Route Parameters Validação with RegExp
 
 We can validate parameters directly in the route, with “where” parameter. A pretty typical case is to prefix your routes by language locale, like `fr/blog` and `en/article/333`. How do we ensure that those two first letters are not used for some other than language?
 
@@ -1470,17 +1473,17 @@ You can also specify the exact columns you want:
 +----------+---------------------------------+---------------------+
 ```
 
-## Validation
+## Validação
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Routing)](#routing) ➡️ [Next (Collections)](#collections)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Rotas)](#rotas) ➡️ [Próximo (Coleções)](#coleções)
 
 - [Image validation](#image-validation)
 - [Custom validation error messages](#custom-validation-error-messages)
 - [Validate dates with "now" or "yesterday" words](#validate-dates-with-now-or-yesterday-words)
-- [Validation Rule with Some Conditions](#validation-rule-with-some-conditions)
-- [Change Default Validation Messages](#change-default-validation-messages)
-- [Prepare for Validation](#prepare-for-validation)
-- [Stop on First Validation Error](#stop-on-first-validation-error)
+- [Validação Rule with Some Conditions](#validação-rule-with-some-conditions)
+- [Change Default Validação Messages](#change-default-validation-messages)
+- [Prepare for Validação](#prepare-for-validation)
+- [Stop on First Validação Error](#stop-on-first-validation-error)
 
 ### Image validation
 
@@ -1513,12 +1516,12 @@ $rules = [
 ];
 ```
 
-### Validation Rule with Some Conditions
+### Validação Rule with Some Conditions
 
 If your validation rules depend on some condition, you can modify the rules by adding `withValidator()` to your `FormRequest` class, and specify your custom logic there. Like, if you want to add validation rule only for some user role.
 
 ```php
-use Illuminate\Validation\Validator;
+use Illuminate\Validação\Validator;
 class StoreBlogCategoryRequest extends FormRequest {
     public function withValidator(Validator $validator) {
         if (auth()->user()->is_admin) {
@@ -1528,7 +1531,7 @@ class StoreBlogCategoryRequest extends FormRequest {
 }
 ```
 
-### Change Default Validation Messages
+### Change Default Validação Messages
 
 If you want to change default validation error message for specific field and specific validation rule, just add a `messages()` method into your `FormRequest` class.
 
@@ -1547,7 +1550,7 @@ class StoreUserRequest extends FormRequest
 }
 ```
 
-### Prepare for Validation
+### Prepare for Validação
 
 If you want to modify some field before default Laravel validation, or, in other words, "prepare" that field, guess what - there's a method `prepareForValidation()` in `FormRequest` class:
 
@@ -1560,7 +1563,7 @@ protected function prepareForValidation()
 }
 ``` 
 
-### Stop on First Validation Error
+### Stop on First Validação Error
 
 By default, Laravel validation errors will be returned in a list, checking all validation rules. But if you want the process to stop after the first error, use validation rule called `bail`:
 ```php
@@ -1570,16 +1573,16 @@ $request->validate([
 ]);
 ```
 
-## Collections
+## Coleções
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Validation)](#validation) ➡️ [Next (Auth)](#auth)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Validação)](#validação) ➡️ [Próximo (Auth)](#auth)
 
-- [Don’t Filter by NULL in Collections](#dont-filter-by-null-in-collections)
-- [Use groupBy on Collections with Custom Callback Function](#use-groupby-on-collections-with-custom-callback-function)
+- [Don’t Filter by NULL in Coleções](#dont-filter-by-null-in-collections)
+- [Use groupBy on Coleções with Custom Callback Function](#use-groupby-on-collections-with-custom-callback-function)
 - [Multiple Collection Methods in a Row](#multiple-collection-methods-in-a-row)
 - [Calculate Sum with Pagination](#calculate-sum-with-pagination)
 
-### Don’t Filter by NULL in Collections
+### Don’t Filter by NULL in Coleções
 
 You can filter by NULL in Eloquent, but if you're filtering the **collection** further - filter by empty string, there's no "null" in that field anymore.
 
@@ -1595,7 +1598,7 @@ $unread_messages = $messages->where('read_at is null')->count();
 $unread_messages = $messages->where('read_at', '')->count();
 ```
 
-### Use groupBy on Collections with Custom Callback Function
+### Use groupBy on Coleções with Custom Callback Function
 
 If you want to group result by some condition whith isn’t a direct column in your database, you can do that by providing a closure function.
 
@@ -1640,7 +1643,7 @@ $posts = $query->paginate(10);
 
 ## Auth
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Collections)](#collections) ➡️ [Next (Mail)](#mail)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Coleções)](#coleções) ➡️ [Próximo (Mail)](#mail)
 
 - [Check Multiple Permissions at Once](#check-multiple-permissions-at-once)
 - [More Events on User Registration](#more-events-on-user-registration)
@@ -1724,7 +1727,7 @@ Gate::before(function($user, $ability) {
 
 ## Mail
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Auth)](#auth) ➡️ [Next (Artisan)](#artisan)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Auth)](#auth) ➡️ [Próximo (Artisan)](#artisan)
 
 - [Testing email into laravel.log](#testing-email-into-laravellog)
 - [Preview Mailables](#preview-mailables)
@@ -1772,7 +1775,7 @@ Notification::route('mail', 'taylor@example.com')
 
 ## Artisan
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Mail)](#mail) ➡️ [Next (Factories)](#factories)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Mail)](#mail) ➡️ [Próximo (Fábricas)](#fábricas)
 
 - [Artisan command parameters](#artisan-command-parameters)
 - [Maintenance Mode](#maintenance-mode)
@@ -1876,9 +1879,9 @@ Route::get('/foo', function () {
 });
 ```
 
-## Factories
+## Fábricas
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Artisan)](#artisan) ➡️ [Next (Log and debug)](#log-and-debug)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Artisan)](#artisan) ➡️ [Próximo (Log e Debug)](#log-e-debug)
 
 - [Factory callbacks](#factory-callbacks)
 - [Generate Images with Seeds/Factories](#generate-images-with-seedsfactories)
@@ -1910,9 +1913,9 @@ $factory->define(User::class, function (Faker $faker) {
 });
 ```
 
-## Log and debug
+## Log e Debug
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Factories)](#factories) ➡️ [Next (API)](#api)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Factories)](#fábricas) ➡️ [Próximo (API)](#api)
 
 
 - [Logging with parameters](#logging-with-parameters)
@@ -1940,7 +1943,7 @@ $users = User::where('name', 'Taylor')->get()->dd();
 
 ## API
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (Log and debug)](#log-and-debug) ➡️ [Next (Other)](#other)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (Log e Debug)](#log-e-debug) ➡️ [Próximo (Outros)](#outros)
 
 - [API Resources: With or Without "data"?](#api-resources-with-or-without-data)
 - [API Return "Everything went ok"](#api-return-everything-went-ok)
@@ -1975,9 +1978,9 @@ public function reorder(Request $request)
 }
 ```
 
-## Other
+## Outros
 
-⬆️ [Go to top](#laravel-tips) ⬅️ [Previous (API)](#api)
+⬆️ [Ir para o topo](#dicas-laravel) ⬅️ [Anterior (API)](#api)
 
 - [Localhost in .env](#localhost-in-env)
 - [When (NOT) to run "composer update"](#when-not-to-run-composer-update)
